@@ -10,7 +10,11 @@ class AndreismController extends Controller
 
     public function index()
     {
-        return view('index', ['andreism' => Andreism::orderBy(DB::raw('RAND()'))->get()]);
+        $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+
+        return view('index', [
+            'story' => $andreism->story
+        ]);
     }
     public function indexJson()
     {

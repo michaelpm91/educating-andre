@@ -17,6 +17,7 @@ class CreateAndreismTable extends Migration
             $table->longText('story');
             $table->text('image');
             $table->string('name', 300);
+            $table->boolean('approved')->default(true);
             $table->timestamps();
         });
     }
