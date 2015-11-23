@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Andreism;
+use DB;
 
 class AndreismController extends Controller
 {
 
     public function index()
     {
-        dd('lolz');
+        return view('index', ['andreism' => Andreism::orderBy(DB::raw('RAND()'))->get()]);
     }
     public function indexJson()
     {
