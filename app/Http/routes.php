@@ -16,6 +16,6 @@ $app->get('/andreism', function () use ($app) { return redirect('/'); });
 
 $app->get('/andreism.json', 'AndreismController@indexJson');
 
-$app->get('/andreism/{id}', 'AndreismController@show');
+$app->get('/andreism/{id:\d+}', 'AndreismController@show');
 
-$app->get('/andreism/{id}.json', 'AndreismController@showJson');
+$app->get('/andreism/{id:\d+}.json', 'AndreismController@showJson');
