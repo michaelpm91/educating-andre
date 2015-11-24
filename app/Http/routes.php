@@ -10,11 +10,11 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$app->get('/', 'AndreismController@index');
+$app->get('/', 'AndreismController@show');
 
 $app->get('/andreism', function () use ($app) { return redirect('/'); });
 
-$app->get('/andreism.json', 'AndreismController@indexJson');
+$app->get('/andreism.json', 'AndreismController@showJson');
 
 $app->get('/andreism/{id:\d+}', 'AndreismController@show');
 

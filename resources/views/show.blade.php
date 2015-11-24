@@ -3,8 +3,11 @@
     @include('header')
 </head>
 <body>
-    <h1>Page One</h1>
-
-    <p>bla, bla, bla</p>
+    <div id="container">
+        <div style="width:500px; height: 500px;">
+            <p>That time Andre...</p>
+            <p>{{ $story }}</p>
+        </div>
+    </div>
 </body>
 </html>

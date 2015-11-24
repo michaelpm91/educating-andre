@@ -16,7 +16,7 @@ class CreateAndreismTable extends Migration
             $table->increments('id');
             $table->longText('story');
             $table->text('image');
-            $table->string('name', 300);
+            $table->string('name', 300)->default("Anonymous");
             $table->boolean('approved')->default(true);
             $table->timestamps();
         });

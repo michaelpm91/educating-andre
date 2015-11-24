@@ -8,25 +8,31 @@ use DB;
 class AndreismController extends Controller
 {
 
-    public function index()
+    public function show($id = null)
     {
-        $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+        if($id) {
+            $andreism = Andreism::find($id);
+        }else {
+            $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+        }
 
-        return view('index', [
+        if(!$andreism) abort(404);
+
+        return view('show', [
             'story' => $andreism->story
         ]);
     }
-    public function indexJson()
+    public function showJson($id = null)
     {
-        dd('lolz Json');
-    }
-    public function show($id)
-    {
-        dd('lolz show', $id);
-    }
-    public function showJson($id)
-    {
-        dd('lolz show Json', $id);
+        if($id) {
+            $andreism = Andreism::find($id);
+        }else {
+            $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+        }
+
+        if(!$andreism) abort(404);
+
+        return response()->json($andreism);
 
     }
 }
