@@ -1,8 +1,4 @@
-<html>
-<head>
-    @include('header')
-</head>
-<body>
+@include('header')
     <div id="container">
         <a href="/andreism/{{ $id }}" target="_blank">
             <div>
@@ -12,5 +8,4 @@
             </div>
         </a>
     </div>
-</body>
-</html>
+@include('footer')
