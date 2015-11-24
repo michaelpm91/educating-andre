@@ -7,5 +7,6 @@
                 <p id="author_sub">{{ $author }}</p>
             </div>
         </a>
+        <a href="/andreism/submit" id="submit">Submit</a>
     </div>
 @include('footer')

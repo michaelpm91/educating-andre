@@ -5,8 +5,15 @@ namespace App\Http\Controllers;
 use App\Andreism;
 use DB;
 
+use Illuminate\Http\Request;
+
 class AndreismController extends Controller
 {
+
+    protected $request;
+    public function __construct(Request $request){
+        $this->request = $request;
+    }
 
     public function show($id = null)
     {
@@ -35,6 +42,12 @@ class AndreismController extends Controller
         if(!$andreism) abort(404);
 
         return response()->json($andreism);
+
+    }
+
+    public function store(){
+
+        return response()->json("created", 201);
 
     }
 }

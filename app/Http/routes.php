@@ -12,10 +12,16 @@
 */
 $app->get('/', 'AndreismController@show');
 
-$app->get('/andreism', function () use ($app) { return redirect('/'); });
+$app->get('/andreism', function () { return redirect('/'); });
 
 $app->get('/andreism.json', 'AndreismController@showJson');
 
 $app->get('/andreism/{id:\d+}', 'AndreismController@show');
 
 $app->get('/andreism/{id:\d+}.json', 'AndreismController@showJson');
+
+$app->get('/andreism/submit', function() {
+    return view('submit');
+});
+
+$app->post('/andreism', 'AndreismController@store');
