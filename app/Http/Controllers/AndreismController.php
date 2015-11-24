@@ -19,7 +19,9 @@ class AndreismController extends Controller
         if(!$andreism) abort(404);
 
         return view('show', [
-            'story' => $andreism->story
+            'story' => $andreism->story,
+            'id' => $andreism->id,
+            'author' => $andreism->name
         ]);
     }
     public function showJson($id = null)

@@ -4,10 +4,13 @@
 </head>
 <body>
     <div id="container">
-        <div style="width:500px; height: 500px;">
-            <p>That time Andre...</p>
-            <p>{{ $story }}</p>
-        </div>
+        <a href="/andreism/{{ $id }}" target="_blank">
+            <div>
+                <p>That time Andre...</p>
+                <p>{{ $story }}</p>
+                <p id="author_sub">{{ $author }}</p>
+            </div>
+        </a>
     </div>
 </body>
 </html>
