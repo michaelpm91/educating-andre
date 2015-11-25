@@ -1,12 +1,17 @@
 @include('header')
-    <div id="container">
+    <div id="container" style="">
         <a href="/andreism/{{ $id }}" target="_blank">
-            <div>
-                <p>That time Andre...</p>
-                <p>{{ $story }}</p>
-                <p id="author_sub">{{ $author }}</p>
-            </div>
+            <p>That time Andre...</p>
+            <p>{{ $story }}</p>
+            <p id="author">{{ $author }}</p>
         </a>
-        <a href="/andreism/submit" id="submit">Submit</a>
+    </div>
+    <a href="#" id="open_submit">Submit</a>
+    <div id="modal">
+        <div id="modal_form">
+            <textarea placeholder="That time Andre..."></textarea>
+            <input placeholder="Name">
+            <button id="submit_andreism">Submit</button>
+        </div>
     </div>
 @include('footer')

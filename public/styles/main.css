@@ -1,31 +1,53 @@
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-#container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    font-size: 24px;
-}
-#container #author_sub{
-    text-align: right;
-    font-style: italic;
-    color: #333;
-    font-size: 12px;
-}
-#container #submit{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    text-decoration: underline;
-    font-size: 12px;
+    margin: 0;
 }
 a{
     color: inherit;
     text-decoration: inherit;
+}
+#container, #modal #modal_form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-align: center;
+}
+#container #author{
+    text-align: right;
+    font-style: italic;
+    font-size: 12px;
+}
+#container img{
+    width: 200px;
+    height: auto;
+}
+#open_submit{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    text-align: center;
+}
+#modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0 , 0.8);
+    display: none;
+}
+#modal #modal_form{
+    background-color: white;
+    border-radius: 5px;
+}
+#modal #modal_form textarea{
+    width: 80%;
+    height: 200px;
+    margin: 10px;
+    resize: none;
+}
+#modal #modal_form input {
+    width: 50%;
+    margin: 10px;
 }
