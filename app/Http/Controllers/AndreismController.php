@@ -18,9 +18,9 @@ class AndreismController extends Controller
     public function show($id = null)
     {
         if($id) {
-            $andreism = Andreism::find($id);
+            $andreism = Andreism::where('approved', 1)->find($id);
         }else {
-            $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+            $andreism = Andreism::where('approved', 1)->orderBy(DB::raw('RAND()'))->first();
         }
 
         if(!$andreism) abort(404);
@@ -34,9 +34,9 @@ class AndreismController extends Controller
     public function showJson($id = null)
     {
         if($id) {
-            $andreism = Andreism::find($id);
+            $andreism = Andreism::where('approved', 1)->find($id);
         }else {
-            $andreism = Andreism::orderBy(DB::raw('RAND()'))->first();
+            $andreism = Andreism::where('approved', 1)->orderBy(DB::raw('RAND()'))->first();
         }
 
         if(!$andreism) abort(404);
@@ -47,13 +47,18 @@ class AndreismController extends Controller
 
     public function indexJson()
     {
-        $andreism = Andreism::paginate();
+        $andreism = Andreism::where('approved', 1)->paginate(10);
         return response()->json($andreism);
     }
 
     public function store(){
-
-        return response()->json("created", 201);
+        $data = $this->request->all();
+        if(empty($data['story'])) return response()->json(["error" => "No data sent"], 400);
+        $andreism = New Andreism();
+        if(trim($data['name'])) $andreism->name = $data['name'];
+        $andreism->story = $data['story'];
+        $andreism->save();
+        return response()->json($andreism, 201);
 
     }
 }

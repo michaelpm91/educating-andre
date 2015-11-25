@@ -16,18 +16,34 @@ $( document ).ready(function() {
         submitAndreism();
     });
 
+    $('#modal_form textarea').on('input', function() {
+        if($(this).val().length > 1){
+            $('#submit_andreism').removeAttr("disabled");
+        }else{
+            $('#submit_andreism').attr("disabled", true);
+        }
+    });
+
     function toggleModal(){
         if(modal_state == "closed") {
             modal_state = "open"
             $('#modal').fadeIn();
         }else{
             modal_state = "closed"
-            $('#modal').fadeOut();
+            $('#modal').fadeOut(function(){
+                $('#modal_form textarea').val('');
+                $('#modal_form input').val('');
+            });
         }
     }
 
     function submitAndreism(){
-        alert('Andreism submitted');
+        $.post("/andreism", {
+            "story" : $('#modal_form textarea').val(),
+            "name" : $('#modal_form input').val()
+        }, function(){
+            toggleModal();
+        });
     }
 
 });
