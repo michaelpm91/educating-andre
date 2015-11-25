@@ -15,7 +15,7 @@ class CreateAndreismTable extends Migration
         Schema::create('andreisms', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('story');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->string('name', 300)->default("Anonymous");
             $table->boolean('approved')->default(true);
             $table->timestamps();

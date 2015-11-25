@@ -45,6 +45,12 @@ class AndreismController extends Controller
 
     }
 
+    public function indexJson()
+    {
+        $andreism = Andreism::paginate();
+        return response()->json($andreism);
+    }
+
     public function store(){
 
         return response()->json("created", 201);

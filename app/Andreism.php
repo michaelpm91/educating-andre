@@ -14,5 +14,5 @@ class Andreism extends Model {
 
     protected $fillable = ['story', 'name', 'image'];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['approved', 'created_at', 'updated_at'];
 }
